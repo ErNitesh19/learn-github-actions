@@ -6,23 +6,20 @@ jobs:
     steps:
       - name: checkout on the code
         uses: actions/checkout@v4
-
-      - name: setup node.js env
-        uses: actions/setup-node@v4
-        with: 
-          node-version: 20
-
+        
       - name: install all dependenicies
         run: npm install
 
       - name: run lint test
         run: npm run lint
 
+      - name: run test
+        run: npm run test
+
       - name: build
         run: npm run build
 
-      - name: run test
-        run: npm run test
+      
 
       
         
