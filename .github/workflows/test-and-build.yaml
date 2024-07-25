@@ -12,6 +12,9 @@ jobs:
         with: 
           node-version: 20
 
+      - name: install all dependenicies
+        run: npm install
+
       - name: run lint test
         run: npm run lint
 
