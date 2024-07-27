@@ -16,7 +16,7 @@ jobs:
         id: step1
 
       - name: second variable output
-        run: echo "test=7" >> $GITHUB_OUTPUT
+        run: echo "test=7" > $GITHUB_OUTPUT
         id: step2
 
   job2:
