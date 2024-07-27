@@ -1,0 +1,43 @@
+# Sharing data b/w 2 jobs.
+name: test artifact
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code repo
+        uses: actions/checkout@v3
+
+      - name: install all dependencies
+        run: npm ci
+
+      - name: run test
+        run: npm run test
+
+      - name: build the package
+        run: npm run build
+
+      - name: show the package
+        run: ls -larth
+
+      - name: upload articfact
+        uses: actions/upload-artifact@v4
+        with:
+          name: test
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu latest
+    steps:
+      - name: list content before downloading
+        run: ls -larth
+
+      - name: download articfact content
+        uses: actions/download-artifact@v4
+        with:
+          name: test
+
+      - name: display content after downloading
+        run: ls -larth
+      
