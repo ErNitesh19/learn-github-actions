@@ -1,0 +1,29 @@
+name: test jobs output
+on: workflow_dispatch
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      x: ${{ steps.step1.outputs.test }}
+      y: ${{ steps.step2.outputs.test }}
+
+    steps:
+      - name: start 
+        run: echo "staring ...."
+
+      - name: first variable output
+        run: echo "test=6" >> $GITHUB_OUTPUT
+        id: step1
+
+      - name: second variable output
+        run: echo "test=7" >> $GITHUB_OUTPUT
+        id: step2
+
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: print output from other dependent
+        run: echo 'x = ${{ needs.job1.outputs.x }} \n y = ${{ needs.job1.outputs.y }}'
+
+        
