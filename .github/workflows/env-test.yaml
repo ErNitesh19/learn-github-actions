@@ -2,6 +2,8 @@ name: env test
 on: workflow_dispatch
 env:
   TEST: OK
+  DB_USER: ${{ secrets.DB_USER }}
+  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 jobs:
   first:
     runs-on: ubuntu-latest
@@ -14,6 +16,9 @@ jobs:
       - name: print job level ENV
         run: echo $JOB_TEST
 
+      - name: referring repo secrets
+        run: echo $DB_USER
+
   second:
     runs-on: ubuntu-latest
     steps:
@@ -22,3 +27,9 @@ jobs:
 
       - name: print job level ENV
         run: echo $JOB_TEST
+
+      - name: referring repo secrets
+        run: echo $DB_USER
+
+      - name: referring repo secrets
+        run: echo $DB_PASSWORD
