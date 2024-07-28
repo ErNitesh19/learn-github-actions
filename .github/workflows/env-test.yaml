@@ -8,3 +8,9 @@ jobs:
     steps:
       - name: print workflow level ENV
         run: echo $TEST
+
+  second:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print workflow level ENV
+        run: echo $TEST
