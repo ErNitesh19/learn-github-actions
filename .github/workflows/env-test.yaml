@@ -1,0 +1,10 @@
+name: env test
+on: workflow_dispatch
+env:
+  TEST: OK
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print workflow level ENV
+        run: echo $TEST
