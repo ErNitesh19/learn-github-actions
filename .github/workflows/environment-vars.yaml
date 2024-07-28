@@ -1,10 +1,10 @@
-name: test github env variables
+name: test env vars
 on: workflow_dispatch
 env:
 	TEST: OK
 jobs:
 	first:
-		runs-on: ubuntu-latest
-		steps:
-			- name: referring workflow specific env varialbes
-			  run: echo $PIPELINE
+ 		runs-on: ubuntu-latest
+	 	steps:
+	 		- name: print env
+				run: echo $TEST
