@@ -5,12 +5,20 @@ env:
 jobs:
   first:
     runs-on: ubuntu-latest
+    env:
+      JOB_TEST: JOB_TEST_OK
     steps:
       - name: print workflow level ENV
         run: echo $TEST
+
+      - name: print job level ENV
+        run: echo $JOB_TEST
 
   second:
     runs-on: ubuntu-latest
     steps:
       - name: print workflow level ENV
         run: echo $TEST
+
+      - name: print job level ENV
+        run: echo $JOB_TEST
