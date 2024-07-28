@@ -19,6 +19,14 @@ jobs:
       - name: referring repo secrets
         run: echo $DB_USER
 
+      - name: step level env 
+        env:
+          STEP_TEST: OK
+        run: echo $STEP_TEST
+
+      - name: step test
+        run: echo $STEP_TEST
+
   second:
     runs-on: ubuntu-latest
     steps:
