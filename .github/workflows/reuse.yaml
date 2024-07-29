@@ -1,0 +1,9 @@
+name: reuse workflow
+on: workflow_call
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - name: info
+        run: echo ${{ toJSON(github) }}
+        
