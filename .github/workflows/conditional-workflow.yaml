@@ -8,9 +8,14 @@ jobs:
         run: echo "First Step!"
 
       - name: second step
+        id: step2
         run: echofequifg "Second Step!"
 
       - name: third step
+        if: steps.step2.outcome == 'failure'
         run: echo "Third Step!"
+
+      - name: fourth step
+        run: echo "Fourth Step!"
 
       
