@@ -1,9 +1,18 @@
 name: reuse workflow
-on: workflow_call
+on: 
+  workflow_call:
+    inputs:
+      test:
+        description: This is a test input
+        required: true
+        type: string
 jobs:
   first:
     runs-on: ubuntu-latest
     steps:
       - name: info
         run: echo '${{ toJSON(github) }}'
+
+      - name: echo input
+        run: echo 'This is the input ${{ inputs.test }}'
         
