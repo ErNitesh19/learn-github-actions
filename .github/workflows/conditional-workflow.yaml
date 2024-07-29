@@ -1,0 +1,16 @@
+name: conditional workflow execution
+on: workflow_dispatch
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - name: first step
+        run: echo "First Step!"
+
+      - name: second step
+        run: echo "Second Step!"
+
+      - name: third step
+        run: echo "Third Step!"
+
+      
