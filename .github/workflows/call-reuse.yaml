@@ -9,4 +9,6 @@ jobs:
 
   refer:
     uses: ./.github/workflows/reuse.yaml
+    with:
+      test: 'Nitesh'
     
