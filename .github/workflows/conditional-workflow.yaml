@@ -5,11 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: first step
-        run: echo "First Step!"
+        run: echo35 "First Step!"
 
       - name: second step
         id: step2
-        run: echofequifg "Second Step!"
+        run: echo "Second Step!"
 
       - name: third step
         if: failure() && steps.step2.outcome == 'failure'
