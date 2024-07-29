@@ -1,0 +1,21 @@
+name: Matrix Strategy
+on: workflow_dispatch
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout 
+        uses: actions/checkout@v4
+
+      - name: setup node.js envionment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: run test
+        run: npm run test
+
+        
