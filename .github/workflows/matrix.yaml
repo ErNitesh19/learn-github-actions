@@ -2,6 +2,7 @@ name: Matrix Strategy
 on: workflow_dispatch
 jobs:
   first:
+    continue-on-error: true
     strategy:
       matrix:
         node-versions: [12, 14, 16]
