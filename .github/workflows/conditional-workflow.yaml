@@ -12,7 +12,7 @@ jobs:
         run: echofequifg "Second Step!"
 
       - name: third step
-        if: steps.step2.outcome == 'failure'
+        if: failure() && steps.step2.outcome == 'failure'
         run: echo "Third Step!"
 
       - name: fourth step
