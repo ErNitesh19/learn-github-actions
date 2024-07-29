@@ -8,7 +8,7 @@ jobs:
         node-versions: [12, 14, 16]
         os-type: [ubuntu-latest, windows-latest]
         exclude:
-          - node-version: 12
+          - node-versions: 12
     runs-on: ${{ matrix.os-type }}
     steps:
       - name: checkout 
